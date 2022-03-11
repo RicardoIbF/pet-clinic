@@ -125,7 +125,6 @@ pipeline {
         sh "./deploy.sh prod $PRODUCTION_LATEST"
     }
 }
-
         stage('Tag Production Package'){
     when {
         expression { env.PRODUCTION_OK == 'true'}
@@ -137,9 +136,7 @@ pipeline {
         sh 'docker push $PRODUCTION_PREVIOUSLY'
         sh 'docker push $PRODUCTION_LATEST'
     }
-}
-
-        
+}      
         
     }
 }
